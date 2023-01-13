@@ -1,7 +1,8 @@
 const express = require('express');
+const { addProduct } = require('../controllers/productController');
 
 const api = express.Router();
 
-api.post('/products', (req, res) => res.send({ success: true }));
+api.post('/products', addProduct);
 
 module.exports = api;
