@@ -1,11 +1,10 @@
 require('dotenv').config();
 
-const express = require('express');
+const app = require('./app');
 const { appConfig, dbConfig } = require('./config');
 const connectMongoDB = require('./db/mongo');
 
 const PORT = appConfig.port;
-const app = express();
 
 // connectMongoDB(dbConfig)
 //   .then(() => console.log('Conectado a BD'))
