@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AddButton from './AddButton';
 import Header from './Header';
-import Loading from './Loading';
+import ListProduct from './ListProduct';
 
 const ProductLayout = () => {
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
@@ -14,11 +13,7 @@ const ProductLayout = () => {
 
       <AddButton />
 
-      {
-        isLoading
-          ? <Loading />
-          : 'Mostrar resultados'
-      }
+      <ListProduct />
     </>
   );
 };
