@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AddButton from './AddButton';
 import Header from './Header';
 import Loading from './Loading';
 
 const ProductLayout = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <>
       <Header
@@ -12,7 +14,11 @@ const ProductLayout = () => {
 
       <AddButton />
 
-      <Loading />
+      {
+        isLoading
+          ? <Loading />
+          : 'Mostrar resultados'
+      }
     </>
   );
 };
