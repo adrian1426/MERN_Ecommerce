@@ -1,8 +1,11 @@
 import { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Form as FormBulma, Button } from 'react-bulma-components';
 const { Field, Control, Label, Input } = FormBulma;
 
-const Form = () => {
+const Form = (props) => {
+  const { handleSubmit } = props;
+
   const [formValues, setFormValues] = useState({
     name: '',
     description: '',
@@ -22,13 +25,13 @@ const Form = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(imageInputRef.current.files[0].name);
+    handleSubmit({ ...formValues, imagen: imageInputRef.current.files[0] });
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmitForm}>
       <Field>
         <Label>Name</Label>
         <Control>
@@ -94,6 +97,10 @@ const Form = () => {
       </Button>
     </form>
   );
+};
+
+Form.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default Form;

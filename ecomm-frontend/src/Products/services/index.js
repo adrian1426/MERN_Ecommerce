@@ -10,3 +10,19 @@ export async function getProducts() {
     console.log(error);
   }
 };
+
+export async function addProduct(product) {
+  try {
+    const formData = new FormData();
+    formData.append('name', product.name);
+    formData.append('description', product.description);
+    formData.append('unitaryPrice', product.unitaryPrice);
+    formData.append('size', product.size);
+    formData.append('imagen', product.imagen);
+
+    const response = await axios.post(`${baseUrl}/products`, formData);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
