@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AddButton from './AddButton';
 import Header from './Header';
 import ListProduct from './ListProduct';
-import { Modal } from 'react-bulma-components';
+import { Modal, Container } from 'react-bulma-components';
 import Form from './Form';
 import { addProduct, getProducts } from '../services';
 
@@ -46,7 +46,7 @@ const ProductLayout = () => {
   }, []);
 
   return (
-    <>
+    <Container>
       <Header
         title="Products app"
       />
@@ -72,7 +72,7 @@ const ProductLayout = () => {
 
         </Modal.Card>
       </Modal>
-    </>
+    </Container>
   );
 };
 
