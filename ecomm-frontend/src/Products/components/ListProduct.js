@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { getProducts } from '../services';
+import PropTypes from 'prop-types';
 import Loading from './Loading';
 
-const ListProduct = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [products, setProducts] = useState([]);
-
-  const loadProducts = async () => {
-    const resProducts = await getProducts();
-
-    if (resProducts.status === 200) {
-      setProducts(resProducts.data.products);
-    }
-
-    setIsLoading(false);
-  };
-
-  useEffect(() => {
-    loadProducts();
-  }, []);
+const ListProduct = (props) => {
+  const { isLoading, products } = props;
 
   if (isLoading) {
     return <Loading />;
@@ -33,6 +17,11 @@ const ListProduct = () => {
       <h2>Listado de productos</h2>
     </div>
   );
+};
+
+ListProduct.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  products: PropTypes.array.isRequired
 };
 
 export default ListProduct;
