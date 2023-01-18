@@ -3,6 +3,7 @@ import AddButton from './AddButton';
 import Header from './Header';
 import ListProduct from './ListProduct';
 import { Modal } from 'react-bulma-components';
+import Form from './Form';
 
 const ProductLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -24,10 +25,12 @@ const ProductLayout = () => {
         onClose={() => setIsModalOpen(false)}
       >
         <Modal.Card>
-          <Modal.Card.Header>Formulario</Modal.Card.Header>
+          <Modal.Card.Header showClose={false}>
+            <Modal.Card.Title>Add Product</Modal.Card.Title>
+          </Modal.Card.Header>
 
           <Modal.Card.Body>
-            Body formulario
+            <Form />
           </Modal.Card.Body>
 
         </Modal.Card>
